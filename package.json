@@ -4,7 +4,8 @@
   "description": "## Descrição Desenvolvido um middleware que, além de retornar uma listagem de usuários e produtos, também retorna um orçamento baseado na taxa do usuário selecionando e no valor dos produtos escolhidos.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/server.ts' -e ts"
+    "start:dev": "nodemon --watch 'src/' --exec 'ts-node src/server.ts' -e ts",
+    "husky:prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.1",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
