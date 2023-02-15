@@ -11,7 +11,9 @@ Desenvolvido um middleware que, além de retornar uma listagem de usuários e pr
 - Funcionalidade 3: Retorna o valor total que o usuário irá pagar pelos produtos de acordo com a sua taxa
 
 ## Rotas
+
 ### Get /docs
+
 - Essa rota é referente a documentação feita utilizando swagger, ao qual ao realizar os passo de Abrir e Executar o Projeto. Você poderá acessar todas as rotas disponíveis e testá-las de forma mais visual e intuitiva.
 
 ### Get /users
@@ -85,9 +87,8 @@ saída com status 200:
 
 - Após clonar o repositório, vá até a pasta do projeto e abra-o no VsCode pelo terminal através do comando `code .`
 - Instale as dependências com o comando: `npm install`
-- Busque o arquivo chamado `.env.example` e siga as regras descritas, que irei repetir a seguir:
-  - Remova o valor da variável PORT que atualmente é `${SERVER_PORT}` para uma porta disponível da sua escolha, por exemplo, `3009`.
-  - Após isso, altere o nome do arquivo `.env.example` para `.env`.
+- Crie um arquivo `.env` e siga as regras que a seguir:
+  - Adicione a variável PORT e insira uma porta disponível da sua escolha, por exemplo, `PORT=3009`.
   - Nesse ponto você terá dois caminhos para executar o projeto. Podendo realizar o build ou utilizando o script de desenvolvimento.
   - Através do build: Em seguida, no terminal, dentro da pasta do projeto execute o comando: `npm run build` para realizar a montagem do projeto. Ao finalizar o build do projeto, execute o comando `npm start`.
   - Através do desenvolvimento: No terminal, execute o comando `npm run start:dev`
@@ -105,5 +106,6 @@ saída com status 200:
 - Swagger
 
 ## Autor
+
 | [<img src="https://avatars.githubusercontent.com/u/65208891?s=400&u=a019a169e12cb45b26bfa1d56559b52d73f57560&v=4" width=115><br><sub>David Costa </sub>](https://github.com/Zevid-Lucas) |
-| :---: |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
