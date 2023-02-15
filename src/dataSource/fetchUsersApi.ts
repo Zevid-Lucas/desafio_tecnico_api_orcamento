@@ -3,23 +3,15 @@ import axios from "axios";
 const BASE_URL = "https://mockend.com/juunegreiros/BE-test-api/";
 
 async function fetchUsers() {
-  try {
-    const response = await axios.get(`${BASE_URL}users`);
-    const { data } = response;
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await axios.get(`${BASE_URL}users`);
+  const { data } = response;
+  return data;
 }
 
 async function fetchUserForId(userId: string) {
-  try {
-    const response = await axios.get(`${BASE_URL}users/${userId}`);
-    const { data } = response;
-    return data;
-  } catch (AxiosError) {
-    console.error(AxiosError);
-  }
+  const response = await axios.get(`${BASE_URL}users/${userId}`);
+  const { data } = response;
+  return data;
 }
 
 export default {

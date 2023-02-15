@@ -7,7 +7,8 @@ const getUserAndProducts = async (req: Request, res: Response) => {
     const totalPrice = await getUserAndProductsService(userId, productsIds);
     res.status(200).json(totalPrice);
   } catch (error) {
-    console.error(error);
+    const { message } = error as Error;
+    res.status(404).json({ message: message });
   }
 };
 

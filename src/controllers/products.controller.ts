@@ -6,7 +6,8 @@ const getProducts = async (_req: Request, res: Response) => {
     const products = await getProductsService();
     res.status(200).json(products);
   } catch (error) {
-    console.error(error);
+    const { message } = error as Error;
+    res.status(404).json({ message: message });
   }
 };
 

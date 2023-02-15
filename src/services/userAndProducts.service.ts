@@ -6,27 +6,28 @@ const getUserAndProductsService = async (
   productsIds: string
 ) => {
   const user = await fetchUsersApi.fetchUserForId(userId);
-
-  if (productsIds.length) {
-    const arrayIds = productsIds.split(",");
-    const products = await Promise.all(
-      arrayIds.map((id) => {
-        return fetchProductsApi.fetchProductsForId(id);
-      })
-    );
-
-    const price = products
-      .map((product) => {
-        return (user.tax * product.price) / 100;
-      })
-      .reduce((acc, val) => {
-        return acc + val;
-      });
-
-    return {
-      totalPrice: price,
-    };
+  if (!user) {
+    throw new Error("User not found");
   }
+  const arrayIds = productsIds.split(",");
+  const promises = arrayIds.map((id) => {
+    return fetchProductsApi.fetchProductsForId(id);
+  });
+  const products = await Promise.all(promises);
+  if (!products?.length || !products[0]) {
+    throw new Error("Product not found");
+  }
+  const price = products
+    .map((product) => {
+      return (user.tax * product.price) / 100;
+    })
+    .reduce((acc, val) => {
+      return acc + val;
+    });
+
+  return {
+    totalPrice: price,
+  };
 };
 
 export default getUserAndProductsService;
