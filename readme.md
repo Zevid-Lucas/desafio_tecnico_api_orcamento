@@ -82,6 +82,7 @@ saída com status 200:
 ## Abrir e Executar o Projeto
 
 - Após clonar o repositório, vá até a pasta do projeto e execute-o pelo VsCode pelo terminal através do comando `code .`
+- Instale as depedências com o comando: `npm install`
 - Busque o arquivo chamado `.env.example` e siga as regras descritas, que irei repetir a seguir:
   - Remova o valor da variável PORT que atualmente é `${SERVER_PORT}` para uma porta disponível da sua escolha, por exemplo, `3009`.
   - Após isso, altere o nome do arquivo `.env.example` para `.env`.
