@@ -1,0 +1,134 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api de orçamento",
+    "description": "Desenvolvido um middleware que, além de retornar uma listagem de usuários e produtos, também retorna um orçamento baseado na taxa do usuário selecionando e no valor dos produtos escolhidos.",
+    "contact": {
+      "email": "zevid.dev@outlook.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Retorna todos os usuários",
+        "description": "Retorna um array com todos os usuários.",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/users"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Retorna todos os produtos",
+        "description": "Retorna um array com todos os produtos.",
+        "tags": ["Products"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/products"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usersAndProducts/{userId}/{productsIds}": {
+      "get": {
+        "summary": "Retorna o valor total dos produtos pago pelo usuário de acordo com sua 'tax'",
+        "description": "Busca o usuário pelo userId e os produtos pelo productsIds, retornando-os e realizando o cálculo que será pago pelo usuário.",
+        "tags": ["UsersAndProducts"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/usersAndProducts"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "ID do usuário",
+            "required": true
+          },
+          {
+            "name": "productsIds",
+            "in": "path",
+            "description": "ID dos produtos",
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "users": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tax": {
+            "type": "number"
+          }
+        }
+      },
+      "products": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      },
+      "usersAndProducts": {
+        "type": "object",
+        "properties": {
+          "totalPrice": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
