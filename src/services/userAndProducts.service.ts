@@ -26,7 +26,7 @@ const getUserAndProductsService = async (
     });
 
   return {
-    totalPrice: price,
+    totalPrice: Number(price.toFixed(2)),
   };
 };
 

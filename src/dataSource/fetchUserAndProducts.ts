@@ -1,7 +1,7 @@
 import fetchProductsApi from "./fetchProductsApi";
 import fetchUsersApi from "./fetchUsersApi";
 
-async function fetchUserAndProducts(userId: string, productsIds: string) {
+const fetchUserAndProducts = async (userId: string, productsIds: string) => {
   const userResponse = await fetchUsersApi.fetchUserForId(userId);
   const productsResponse = await fetchProductsApi.fetchProductsForId(
     productsIds
@@ -11,6 +11,6 @@ async function fetchUserAndProducts(userId: string, productsIds: string) {
     userResponse,
     productsResponse,
   };
-}
+};
 
 export default fetchUserAndProducts;
