@@ -53,7 +53,7 @@
         }
       }
     },
-    "/usersAndProducts/{userId}/{productsIds}": {
+    "/user_products/{userId}/{productsIds}": {
       "get": {
         "summary": "Retorna o valor total dos produtos pago pelo usuário de acordo com sua 'tax'",
         "description": "Busca o usuário pelo userId e os produtos pelo productsIds, retornando-os e realizando o cálculo que será pago pelo usuário.",
