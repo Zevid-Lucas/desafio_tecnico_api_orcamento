@@ -70,11 +70,11 @@ saída com status 200:
 ]
 ```
 
-### Get /usersAndProducts/:userId/:productsIds
+### Get /user_products/:userId/:productsIds
 
-- A rota `get /usersAndProducts/:userId/:productsIds` retorna o valor total que o usuário irá pagar pelos produtos de acordo com a sua `tax`.
+- A rota `get /user_products/:userId/:productsIds` retorna o valor total que o usuário irá pagar pelos produtos de acordo com a sua `tax`.
 
-com endpoint: `/usersAndProducts/1/1,2,3`
+com endpoint: `/user_products/1/1,2,3`
 saída com status 200:
 
 ```json
